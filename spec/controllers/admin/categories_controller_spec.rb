@@ -34,6 +34,18 @@ describe Admin::CategoriesController do
     end
   end
 
+
+  describe "test_new" do
+    before(:each) do
+      get :new
+    end
+    
+    it "creates new category" do
+      assign(:category, Factory(:category))
+      post :edit, :name => Factory(:category).name, :permalink => Factory(:category).permalink
+    end
+  end
+
   it "test_update" do
     post :edit, :id => Factory(:category).id
     assert_response :redirect, :action => 'index'

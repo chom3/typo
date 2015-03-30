@@ -17,7 +17,13 @@ module NavigationHelpers
       '/'
     when /^the new article page$/
       '/admin/content/new'
-
+    when /^the admin dashboard page$/
+      '/admin/'
+    when /^the categories page$/
+      '/admin/categories/new'  
+    when /^the edit page for "(.*)"$/  
+      category = Category.find_by_name($1)
+      "/admin/categories/edit/#{category.id}"
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
